@@ -45,10 +45,8 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: hopla
-      POSTGRES_PASSWORD: hopla
-      POSTGRES_DB: hopla
+    env_file:
+      - docker/postgres/postgres.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

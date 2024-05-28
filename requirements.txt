@@ -4,3 +4,5 @@ django-jazzmin==2.6.0
 django-debug-toolbar==4.3.0
 pylibmc==1.6.3
 psycopg2-binary
+djangorestframework
+drf-yasg
