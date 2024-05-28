@@ -1,8 +1,8 @@
-from app.celery_init import app
+from hopla.celery import app
 
 
 def upload_image(ticket_id: int, image: str):
     app.send_task(
-        "apps.tasks.upload_image",
+        "apps.tickets.tasks.upload_image",
         args=[],
     )

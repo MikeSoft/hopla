@@ -1,5 +1,8 @@
-from .models import Ticket, TicketStatus
+from hopla.celery import app
+
+from .models import Ticket
 
 
+@app.task
 def upload_image():
-    print('Uploading image...')
+    print("Uploading image...")

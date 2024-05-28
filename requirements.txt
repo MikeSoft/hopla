@@ -9,3 +9,7 @@ drf-yasg
 django-redis==5.4.0
 django-celery-results==2.5.1
 celery==5.2.7
+Django-Cloudinary-storage
+django-storages
+Pillow
+cloudinary

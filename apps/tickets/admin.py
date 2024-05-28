@@ -7,7 +7,7 @@ class ImageUploadAdmin(admin.ModelAdmin):
     list_display = [
         "id",
         "ticket",
-        "image_url",
+        "image",
         "uploaded_at",
     ]
 

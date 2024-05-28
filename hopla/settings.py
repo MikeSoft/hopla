@@ -17,6 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "cloudinary_storage",
+    "cloudinary",
     "rest_framework",
     "drf_yasg",
     "apps.tickets",
@@ -102,3 +104,10 @@ CACHES = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "apps/api_graphql/static")]
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("HOPLA_CLOUD_NAME"),
+    "API_KEY": os.getenv("HOPLA_API_KEY"),
+    "API_SECRET": os.getenv("HOPLA_API_SECRET"),
+}
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"

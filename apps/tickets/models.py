@@ -23,7 +23,7 @@ class ImageUpload(models.Model):
     ticket = models.ForeignKey(
         Ticket, on_delete=models.CASCADE, related_name="uploaded_images"
     )
-    image_url = models.URLField(max_length=255)
+    image = models.ImageField(upload_to="images/", blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
