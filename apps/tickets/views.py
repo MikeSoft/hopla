@@ -1,26 +1,31 @@
+import base64
 from datetime import datetime
-from rest_framework import generics, permissions
+from drf_yasg.utils import swagger_auto_schema
+
+from drf_yasg import openapi
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
+from rest_framework import generics, permissions, status
 from django.utils.timezone import make_aware
-from .models import ImageUpload
-from .serializers import ImageUploadSerializer
+import apps.tickets.async_manager as async_manager
 from .models import Ticket
 from .serializers import TicketSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 class TicketListView(generics.ListAPIView):
     serializer_class = TicketSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         user = self.request.user
         queryset = Ticket.objects.filter(user=user)
 
-        # Filtrado por estado
         status = self.request.query_params.get("status")
         if status:
             queryset = queryset.filter(status=status)
 
-        # Filtrado por rango de fechas
         start_date = self.request.query_params.get("start_date")
         end_date = self.request.query_params.get("end_date")
         if start_date and end_date:
@@ -44,16 +49,37 @@ class TicketDetailView(generics.RetrieveAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     permission_classes = [permissions.IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
 
     def get_queryset(self):
         user = self.request.user
-        return Ticket.objects.filter(user=user)
+        return self.queryset.filter(user=user)
 
-
-class ImageUploadView(generics.CreateAPIView):
-    queryset = ImageUpload.objects.all()
-    serializer_class = ImageUploadSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(ticket=self.request.user.tickets.last())
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter(
+                "image",
+                openapi.IN_FORM,
+                description="Image file to upload",
+                type=openapi.TYPE_FILE,
+                required=True,
+            ),
+        ],
+        responses={
+            202: openapi.Response("Image upload started"),
+            400: openapi.Response("No image provided"),
+        },
+    )
+    def post(self, request, *args, **kwargs):
+        ticket = self.get_object()
+        image_data = request.FILES.get("image")
+        if image_data:
+            # Aquí se lanza la tarea Celery
+            image_data_base64 = base64.b64encode(image_data.read()).decode("utf-8")
+            async_manager.upload_image(ticket.id, image_data.name, image_data_base64)
+            return Response(
+                {"message": "Image upload started"}, status=status.HTTP_202_ACCEPTED
+            )
+        return Response(
+            {"message": "No image provided"}, status=status.HTTP_400_BAD_REQUEST
+        )
