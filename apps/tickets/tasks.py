@@ -1,7 +1,9 @@
 import base64
-from hopla.celery import app
-from django.core.files.base import ContentFile
+
 import cloudinary.uploader
+from django.core.files.base import ContentFile
+
+from hopla.celery import app
 from .models import Ticket, ImageUpload
 
 

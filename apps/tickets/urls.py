@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import TicketCreateView, TicketDetailView, TicketListView
 
 app_name = "tickets"

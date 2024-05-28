@@ -6,8 +6,6 @@ services:
     build: docker/nginx
     ports:
       - "80:80"
-    expose:
-      - "80"
     links:
       - web:web
     depends_on:
@@ -22,12 +20,11 @@ services:
       dockerfile: docker/web/Dockerfile
     ports:
       - "8000:8000"
-    expose:
-      - "8000"
     volumes:
       - .:/app
     env_file:
       - docker/web/env.env
+      - docker/postgres/postgres.env
     environment:
       DEBUG: 'true'
     working_dir: /app
@@ -37,8 +34,10 @@ services:
              /usr/local/bin/gunicorn hopla.wsgi:application  -w 2 -b :8000"
     links:
       - redis:redis
+      - postgres:postgres
     depends_on:
       - redis
+      - postgres
 
   postgres:
     image: postgres:latest
@@ -56,10 +55,8 @@ services:
     ports:
       - "6379:6379"
 
-
   celery:
     restart: always
-    working_dir: /app
     build:
       context: .
       dockerfile: docker/web/Dockerfile

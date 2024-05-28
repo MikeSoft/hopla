@@ -1,5 +1,3 @@
-from django.core.files.uploadedfile import InMemoryUploadedFile
-
 from hopla.celery import app
 
 

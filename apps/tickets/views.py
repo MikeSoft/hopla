@@ -1,16 +1,17 @@
 import base64
 from datetime import datetime
-from drf_yasg.utils import swagger_auto_schema
 
-from drf_yasg import openapi
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.response import Response
-from rest_framework import generics, permissions, status
 from django.utils.timezone import make_aware
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import generics, permissions, status
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+
 import apps.tickets.async_manager as async_manager
 from .models import Ticket
 from .serializers import TicketSerializer
-from rest_framework.parsers import MultiPartParser, FormParser
 
 
 class TicketListView(generics.ListAPIView):

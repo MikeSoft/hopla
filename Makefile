@@ -23,3 +23,6 @@ deploy:
 bweb:
 	$(DOCKER_COMPOSE) build web
 	$(DOCKER_COMPOSE) up -d web
+
+superuser:
+	$(DOCKER_COMPOSE) exec web python manage.py createsuperuser

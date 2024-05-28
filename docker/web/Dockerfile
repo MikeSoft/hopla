@@ -1,22 +1,16 @@
-FROM python:3.8
+FROM python:3.8-slim
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update && apk add --no-cache \
-    python3-dev \
+WORKDIR /app
+
+COPY requirements.txt /app/
+RUN apt-get update && apt-get install -y \
     gcc \
-    libc-dev \
-    libmemcached-dev \
-    zlib-dev \
-    libffi-dev \
-    openssl-dev
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /app
-
-WORKDIR /app
-COPY requirements.txt /app/
-
-RUN pip install --upgrade pip
-RUN pip install importlib-metadata==4.8.1  # Asegúrate de instalar una versión compatible
-RUN pip install gunicorn
-RUN pip install -r requirements.txt

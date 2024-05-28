@@ -7,13 +7,12 @@ psycopg2-binary
 djangorestframework
 drf-yasg
 django-redis==5.4.0
-importlib-metadata==latest
+importlib-metadata==4.6.0
 Django-Cloudinary-storage
 django-storages
 Pillow
 cloudinary
 gunicorn
-
 
 celery==5.3.6
 celery[redis]
