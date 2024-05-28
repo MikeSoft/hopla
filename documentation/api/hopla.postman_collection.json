@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "0147e175-4bd0-4da5-adfd-c1b93e5e0d36",
+		"name": "New hopla",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1867791"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,es-CO;q=0.8,es;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "Pycharm-9c7d33c4=99aa92e0-0afd-4042-8a52-03b1abef7657; username-localhost-8888=\"2|1:0|10:1716171270|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICI0ZTE2NmYyN2I3N2E0YTAxOGRkNDQ1YWM2ZjdiZDk0MiIsICJuYW1lIjogIkFub255bW91cyBNZXRpcyIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIE1ldGlzIiwgImluaXRpYWxzIjogIkFNIiwgImNvbG9yIjogbnVsbH0=|181359a880de9bb609cc2c2464b71d2f089f496dd39d5b2f1f4056ab1bf2f84a\"; _xsrf=2|b88f35bf|7396f9fdbf7a6c01b908d1b01a4f52f1|1716171270; csrftoken=QBApwSa6PHnTnvY5nhDOXQ3IcOEJ02Gn; sessionid=89o5ljmhxpmwjm89sel3dwxi9pxbff6l; jazzy_menu=open"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/swagger/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "81dVKPFsPbTtAhiU02It9qzDdUX8xb9qOsDa6xFouI6cNC6Pd9b7W6sbfyrHn3FD"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/tickets/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tickets",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,es-CO;q=0.8,es;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "Pycharm-9c7d33c4=99aa92e0-0afd-4042-8a52-03b1abef7657; username-localhost-8888=\"2|1:0|10:1716171270|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICI0ZTE2NmYyN2I3N2E0YTAxOGRkNDQ1YWM2ZjdiZDk0MiIsICJuYW1lIjogIkFub255bW91cyBNZXRpcyIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIE1ldGlzIiwgImluaXRpYWxzIjogIkFNIiwgImNvbG9yIjogbnVsbH0=|181359a880de9bb609cc2c2464b71d2f089f496dd39d5b2f1f4056ab1bf2f84a\"; _xsrf=2|b88f35bf|7396f9fdbf7a6c01b908d1b01a4f52f1|1716171270; csrftoken=QBApwSa6PHnTnvY5nhDOXQ3IcOEJ02Gn; sessionid=89o5ljmhxpmwjm89sel3dwxi9pxbff6l; jazzy_menu=open"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/swagger/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "81dVKPFsPbTtAhiU02It9qzDdUX8xb9qOsDa6xFouI6cNC6Pd9b7W6sbfyrHn3FD"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"num_images\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tickets/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tickets",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload image Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,es-CO;q=0.8,es;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "Pycharm-9c7d33c4=99aa92e0-0afd-4042-8a52-03b1abef7657; username-localhost-8888=\"2|1:0|10:1716171270|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICI0ZTE2NmYyN2I3N2E0YTAxOGRkNDQ1YWM2ZjdiZDk0MiIsICJuYW1lIjogIkFub255bW91cyBNZXRpcyIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIE1ldGlzIiwgImluaXRpYWxzIjogIkFNIiwgImNvbG9yIjogbnVsbH0=|181359a880de9bb609cc2c2464b71d2f089f496dd39d5b2f1f4056ab1bf2f84a\"; _xsrf=2|b88f35bf|7396f9fdbf7a6c01b908d1b01a4f52f1|1716171270; csrftoken=QBApwSa6PHnTnvY5nhDOXQ3IcOEJ02Gn; sessionid=89o5ljmhxpmwjm89sel3dwxi9pxbff6l; jazzy_menu=open"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/swagger/?"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "qzy07cXNvItg0Qr55uAeYXIUEDwt85Pk60YftUXJafGZdbf0iB3SLDBsGh02YXlx"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/mikeolivera/Ilustración_sin_título.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tickets/5/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tickets",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,es-CO;q=0.8,es;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "Pycharm-9c7d33c4=99aa92e0-0afd-4042-8a52-03b1abef7657; username-localhost-8888=\"2|1:0|10:1716171270|23:username-localhost-8888|192:eyJ1c2VybmFtZSI6ICI0ZTE2NmYyN2I3N2E0YTAxOGRkNDQ1YWM2ZjdiZDk0MiIsICJuYW1lIjogIkFub255bW91cyBNZXRpcyIsICJkaXNwbGF5X25hbWUiOiAiQW5vbnltb3VzIE1ldGlzIiwgImluaXRpYWxzIjogIkFNIiwgImNvbG9yIjogbnVsbH0=|181359a880de9bb609cc2c2464b71d2f089f496dd39d5b2f1f4056ab1bf2f84a\"; _xsrf=2|b88f35bf|7396f9fdbf7a6c01b908d1b01a4f52f1|1716171270; csrftoken=QBApwSa6PHnTnvY5nhDOXQ3IcOEJ02Gn; sessionid=89o5ljmhxpmwjm89sel3dwxi9pxbff6l; jazzy_menu=open"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8000/swagger/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "81dVKPFsPbTtAhiU02It9qzDdUX8xb9qOsDa6xFouI6cNC6Pd9b7W6sbfyrHn3FD"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/tickets/5/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tickets",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

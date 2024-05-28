@@ -10,20 +10,20 @@ class ImageUploadSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
+    uploaded_images = ImageUploadSerializer(many=True, read_only=True)
+
     class Meta:
         model = Ticket
-        fields = ["id", "user", "num_images", "status", "created_at", "updated_at"]
-        read_only_fields = [
+        fields = [
             "id",
             "user",
+            "num_images",
             "status",
             "created_at",
             "updated_at",
-            "images",
+            "uploaded_images",
         ]
-
-    def get_images(self, obj):
-        return ImageUploadSerializer(obj.images.all(), many=True).data
+        read_only_fields = ["id", "user", "status", "created_at", "updated_at"]
 
     def create(self, validated_data):
         validated_data["user"] = self.context["request"].user

@@ -53,7 +53,7 @@ class TicketDetailView(generics.RetrieveAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return self.queryset.filter(user=user)
+        return Ticket.objects.filter(user=user).prefetch_related("uploaded_images")
 
     @swagger_auto_schema(
         manual_parameters=[
@@ -72,6 +72,12 @@ class TicketDetailView(generics.RetrieveAPIView):
     )
     def post(self, request, *args, **kwargs):
         ticket = self.get_object()
+        if ticket.uploaded_images.count() >= ticket.num_images:
+            return Response(
+                {"message": "Ticket already has the maximum number of images"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         image_data = request.FILES.get("image")
         if image_data:
             # Aquí se lanza la tarea Celery

@@ -32,8 +32,8 @@ services:
       DEBUG: 'true'
     working_dir: /app
     command: >
-      sh -c "python manage.py collectstatic --settings=hopla.settings_docker --noinput &&
-             python manage.py migrate --settings=hopla.settings_docker &&
+      sh -c "python manage.py collectstatic --settings=hopla.settings --noinput &&
+             python manage.py migrate --settings=hopla.settings &&
              /usr/local/bin/gunicorn hopla.wsgi:application  -w 2 -b :8000"
     links:
       - redis:redis
@@ -59,6 +59,7 @@ services:
 
   celery:
     restart: always
+    working_dir: /app
     build:
       context: .
       dockerfile: docker/web/Dockerfile
@@ -66,6 +67,10 @@ services:
     env_file:
       - docker/web/env.env
       - docker/postgres/postgres.env
+    links:
+      - redis:redis
+    depends_on:
+      - redis
 
 volumes:
   postgres_data:

@@ -3,15 +3,17 @@ from django.conf import settings
 
 
 class Ticket(models.Model):
-    STATUS_CHOICES = (
-        ("pending", "Pending"),
-        ("completed", "Completed"),
-    )
+    class STATUS_CHOICES(models.TextChoices):
+        PENDING = "pending", "Pending"
+        COMPLETE = "complete", "Complete"
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="tickets"
     )
     num_images = models.IntegerField(default=0)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES.choices, default=STATUS_CHOICES.PENDING
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
