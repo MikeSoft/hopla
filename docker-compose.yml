@@ -56,5 +56,16 @@ services:
     ports:
       - "6379:6379"
 
+
+  celery:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    command: celery -A hopla worker -l INFO
+    env_file:
+      - docker/web/env.env
+      - docker/postgres/postgres.env
+
 volumes:
   postgres_data:
